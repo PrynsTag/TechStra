@@ -1,7 +1,7 @@
 <?php
 
 
-class Register_model extends CI_Model
+class Register_Model extends CI_Model
 {
 	public function insert_user($data)
 	{

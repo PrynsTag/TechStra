@@ -20,12 +20,58 @@ class Login extends CI_Controller
 	{
 		$input_rules = array(
 			array(
-				'field' => '',
-				'label' => '',
-				'rules' => ''
+				'field' => 'username',
+				'label' => 'Username',
+				'rules' => 'required'
+			),
+			array(
+				'field' => 'password',
+				'label' => 'Password',
+				'rules' => 'required'
 			)
 		);
 
 		$this->form_validation->set_rules($input_rules);
+
+		if ($this->form_validation->run() == false) {
+			$message = [
+				'form_error' => validation_errors()
+			];
+
+			$this->session->set_flashdata($message);
+
+			redirect('login');
+		} else {
+			$username = $this->input->post('username', true);
+			$password = $this->input->post('password', true);
+
+			$query_db = array(
+				'user_username' => $username,
+				'user_password' => $password
+			);
+
+			$user = $this->login_model->check_user($query_db);
+
+			if (count($user) == 1) {
+				$user_info = $user[0];
+
+				$user_data = array(
+					'id' => $user_info->user_id,
+					'username' => $user_info->user_username
+				);
+
+				$this->session->set_userdata('user_info', $user_data);
+
+				redirect('home');
+			} else {
+				$message = [
+					'form_error' => 'User does not exist. Please try again.'
+				];
+
+				$this->session->set_flashdata($message);
+
+				redirect('login');
+			}
+		}
 	}
 }

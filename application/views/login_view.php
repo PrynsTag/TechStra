@@ -1,9 +1,15 @@
-<?php echo form_open('user_login'); ?>
-<div class="mb-3">
+<?php if ($this->session->flashdata('form_error')) : ?>
+    <div class="alert alert-danger">
+        <p><?= $this->session->flashdata('form_error') ?></p>
+    </div>
+<?php endif; ?>
+
+<?php echo form_open('login/user_login'); ?>
+<div class="">
     <label for="username" class="form-label">Username</label>
     <?= form_input($input_username); ?>
 </div>
-<div class="mb-3">
+<div class="">
     <label for="password" class="form-label">Password</label>
     <?= form_input($input_password); ?>
 </div>
