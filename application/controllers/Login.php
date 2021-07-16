@@ -9,7 +9,7 @@ class Login extends CI_Controller
 			'header_title' => 'Login - TechStra',
 			'main_view' => 'login_view',
 			'form_attributes' => array('method' => 'post'),
-			'input_email' => array('class' => 'form-control', 'id' => 'username', 'name' => 'username', 'type', 'text'),
+			'input_username' => array('class' => 'form-control', 'id' => 'username', 'name' => 'username', 'type', 'text'),
 			'input_password' => array('class' => 'form-control', 'id' => 'password', 'name' => 'password', 'type' => 'password')
 		];
 
