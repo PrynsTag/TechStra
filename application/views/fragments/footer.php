@@ -1,5 +1,9 @@
 <!-- Footer -->
+<<<<<<< HEAD
+<footer class="page-footer font-small blue pt-4 bg-light">
+=======
 <footer class="page-footer font-small blue pt-4">
+>>>>>>> 24a6a46b12d0d79a333ce008b6ded3ae8a3ab489
 
     <!-- Footer Links -->
     <div class="container-fluid text-center text-md-left">
