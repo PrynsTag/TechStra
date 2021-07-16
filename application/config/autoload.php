@@ -65,7 +65,7 @@ $autoload['libraries'] = array('form_validation', 'database', 'session');
 |  Auto-load Drivers
 | -------------------------------------------------------------------
 | These classes are located in system/libraries/ or in your
-| application/libraries/ directory, but are also placed inside their
+| application/libraries/ directory, but ae also placed inside their
 | own subdirectory and they extend the CI_Driver_Library class. They
 | offer multiple interchangeable driver options.
 |
@@ -89,7 +89,7 @@ $autoload['drivers'] = array();
 |
 |	$autoload['helper'] = array('url', 'file');
 */
-$autoload['helper'] = array();
+$autoload['helper'] = array('url', 'file', 'html', 'form');
 
 /*
 | -------------------------------------------------------------------
