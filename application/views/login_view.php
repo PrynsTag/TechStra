@@ -1,4 +1,10 @@
-<?php echo form_open('user_login'); ?>
+<?php if ($this->session->flashdata('form_error')) : ?>
+    <div class="alert alert-danger">
+        <p><?= $this->session->flashdata('form_error') ?></p>
+    </div>
+<?php endif; ?>
+
+<?php echo form_open('login/user_login'); ?>
 <div class="mb-3">
     <label for="username" class="form-label">Username</label>
     <?= form_input($input_username); ?>
