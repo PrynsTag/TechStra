@@ -48,5 +48,5 @@
 	</div>
 	<button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
 	<p class="mt-5 mb-3 text-muted">Astratech &copy; 2017–2021</p>
-	</form>
+	<?= form_close() ?>
 </main>
