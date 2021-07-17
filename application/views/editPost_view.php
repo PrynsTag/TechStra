@@ -3,15 +3,15 @@
 // die();
 ?>
 
-<?php if ($this->session->flashdata('alert_error')) : ?>
+<?php if ($this->session->tempdata('alert_error')) : ?>
     <div class="alert alert-danger">
-        <p><?= $this->session->flashdata('alert_error') ?></p>
+        <p><?= $this->session->tempdata('alert_error') ?></p>
     </div>
 <?php endif; ?>
 
-<?php if ($this->session->flashdata('alert_success')) : ?>
+<?php if ($this->session->tempdata('alert_success')) : ?>
     <div class="alert alert-success">
-        <p><?= $this->session->flashdata('alert_success') ?></p>
+        <p><?= $this->session->tempdata('alert_success') ?></p>
     </div>
 <?php endif; ?>
 

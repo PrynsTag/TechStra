@@ -1,6 +1,6 @@
-<?php if ($this->session->flashdata('form_error')) : ?>
+<?php if ($this->session->tempdata('form_error')) : ?>
     <div class="alert alert-danger">
-        <p><?= $this->session->flashdata('form_error') ?></p>
+        <p><?= $this->session->tempdata('form_error') ?></p>
     </div>
 <?php endif; ?>
 
