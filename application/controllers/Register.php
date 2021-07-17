@@ -15,6 +15,7 @@ class Register extends CI_Controller
 			"header_title" => "Sign Up",
 			"main_view" => "register_view"
 		];
+
 		$this->index($data);
 	}
 
@@ -32,7 +33,7 @@ class Register extends CI_Controller
 
 		if ($this->form_validation->run()) {
 			$verification_key = mt_rand(100000, 999999);
-//            $encrypted_password = $this->encrypt->encode($this->input->post("password")); if password needs to encrypted
+			//            $encrypted_password = $this->encrypt->encode($this->input->post("password")); if password needs to encrypted
 			$data = array(
 				"user_firstname" => $this->input->post("firstname"),
 				"user_lastname" => $this->input->post("lastname"),
