@@ -27,7 +27,7 @@
 						<a class="dropdown-item" href="#">Profile</a>
 						<a class="dropdown-item" href="#">Setting</a>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Logout</a>
+						<a class="dropdown-item" href="login/user_logout">Logout</a>
 					</div>
 				</li>
 			</ul>
