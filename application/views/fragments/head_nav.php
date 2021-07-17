@@ -24,7 +24,7 @@
 						<img class="rounded-circle" src="<?= base_url("assets/images/astra-tech.jpg") ?>" alt="Profile-Image" height="42" width="42">
 					</a>
 					<div class="dropdown-menu">
-						<a class="dropdown-item" href="#">Profile</a>
+						<a class="dropdown-item" href="<?= base_url("profile") ?>">Profile</a>
 						<a class="dropdown-item" href="#">Setting</a>
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" href="login/user_logout">Logout</a>
