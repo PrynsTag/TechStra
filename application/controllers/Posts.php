@@ -49,7 +49,7 @@ class Posts extends CI_Controller
 
         if ($this->form_validation->run() == false) {
             $message = [
-                'form_error' => validation_errors()
+                'alert_error' => validation_errors()
             ];
 
             $this->session->set_flashdata($message);

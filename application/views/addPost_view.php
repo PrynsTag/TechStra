@@ -1,6 +1,6 @@
 <?php if ($this->session->flashdata('alert_error')) : ?>
     <div class="alert alert-danger">
-        <p><?= $this->session->flashdata('error') ?></p>
+        <p><?= $this->session->flashdata('alert_error') ?></p>
     </div>
 <?php endif; ?>
 
