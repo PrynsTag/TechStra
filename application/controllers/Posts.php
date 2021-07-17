@@ -41,7 +41,7 @@ class Posts extends CI_Controller
             array(
                 'field' => 'description',
                 'label' => 'Description',
-                'rules' => 'required|min_length[3]|max_length[20]'
+                'rules' => 'required|min_length[3]|max_length[50]'
             )
         );
 
@@ -49,10 +49,10 @@ class Posts extends CI_Controller
 
         if ($this->form_validation->run() == false) {
             $message = [
-                'form_error' => validation_errors()
+                'alert_error' => validation_errors()
             ];
 
-            $this->session->set_flashdata($message);
+            $this->session->set_tempdata('alert_error', validation_errors(), 1);
 
             redirect('posts/add');
         } else {
@@ -64,11 +64,8 @@ class Posts extends CI_Controller
             $this->upload->initialize($image_config);
 
             if (!$this->upload->do_upload('imageupload')) {
-                $message = [
-                    'alert_error' => $this->upload->display_errors()
-                ];
 
-                $this->session->set_flashdata($message);
+                $this->session->set_tempdata('alert_error', $this->upload->display_errors(), 1);
 
                 redirect('posts/add');
             } else {
@@ -87,11 +84,7 @@ class Posts extends CI_Controller
 
                 $this->post_model->addPost($query_data);
 
-                $message = [
-                    'alert_success' => 'Add Successfully'
-                ];
-
-                $this->session->set_flashdata($message);
+                $this->session->set_tempdata('alert_success', 'Add Successfully', 1);
 
                 redirect('posts/add');
             }
@@ -132,11 +125,8 @@ class Posts extends CI_Controller
         $this->form_validation->set_rules($input_rules);
 
         if ($this->form_validation->run() == false) {
-            $message = [
-                'alert_error' => validation_errors()
-            ];
 
-            $this->session->set_flashdata($message);
+            $this->session->set_tempdata('alert_error', validation_errors(), 1);
 
             redirect('posts/edit/' . $post_id);
         } else {
@@ -148,11 +138,8 @@ class Posts extends CI_Controller
             $this->upload->initialize($image_config);
 
             if (!$this->upload->do_upload('imageupload')) {
-                $message = [
-                    'alert_error' => $this->upload->display_errors()
-                ];
 
-                $this->session->set_flashdata($message);
+                $this->session->set_tempdata('alert_error', $this->upload->display_errors(), 1);
 
                 redirect('posts/edit/' . $post_id);
             } else {
@@ -171,11 +158,7 @@ class Posts extends CI_Controller
 
                 $this->post_model->editPost($post_id, $query_data);
 
-                $message = [
-                    'alert_success' => 'Edit post successfully'
-                ];
-
-                $this->session->set_flashdata($message);
+                $this->session->set_tempdata('alert_success', 'Edit post successfully', 1);
 
                 redirect('posts/edit/' . $post_id);
             }
@@ -186,11 +169,7 @@ class Posts extends CI_Controller
     {
         $this->post_model->delete_post($post_id);
 
-        $message = [
-            'modal_success' => 'You have successfully delete a post'
-        ];
-
-        $this->session->set_flashdata($message);
+        $this->session->set_tempdata('modal_success', 'You have successfully delete a post', 1);
 
         redirect('posts');
     }

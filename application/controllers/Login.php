@@ -34,11 +34,8 @@ class Login extends CI_Controller
 		$this->form_validation->set_rules($input_rules);
 
 		if ($this->form_validation->run() == false) {
-			$message = [
-				'form_error' => validation_errors()
-			];
 
-			$this->session->set_flashdata($message);
+			$this->session->set_tempdata('form_error', validation_errors(), 1);
 
 			redirect('login');
 		} else {
@@ -64,11 +61,8 @@ class Login extends CI_Controller
 
 				redirect('home');
 			} else {
-				$message = [
-					'form_error' => 'User does not exist. Please try again.'
-				];
 
-				$this->session->set_flashdata($message);
+				$this->session->set_tempdata('form_error', 'User does not exist. Please try again.', 1);
 
 				redirect('login');
 			}
