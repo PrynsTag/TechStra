@@ -1,10 +1,93 @@
+/* Post CSS */
 .collectionCard {
-    margin: calc(1.3%) calc(0.8%) 0px;
-    padding: 0px 3.2% 0px 3.2%;
+	margin: calc(1.3%) calc(0.8%) 0px;
+	padding: 0px 3.2% 0px 3.2%;
 }
 
 .boxImageContainer {
-    padding-bottom: 100%;
-    overflow: hidden;
+	padding-bottom: 100%;
+	overflow: hidden;
+	position: relative;
+}
+
+/* Profile CSS */
+body {
+	background-color: #B3E5FC;
+	border-radius: 10px
+}
+
+.card {
+	width: 400px;
+	border: none;
+	border-radius: 10px;
+	background-color: #fff
+}
+
+.stats {
+	background: #f2f5f8 !important;
+	color: #000 !important
+}
+
+.articles {
+	font-size: 10px;
+	color: #a1aab9
+}
+
+.number1 {
+	font-weight: 500
+}
+
+.followers {
+	font-size: 10px;
+	color: #a1aab9
+}
+
+.number2 {
+	font-weight: 500
+}
+
+.rating {
+	font-size: 10px;
+	color: #a1aab9
+}
+
+.number3 {
+	font-weight: 500
+}
+
+.settingsCard .settingsDetails .settingsContent .settingButtons a:hover {
+    background: #ffd464;
+    color: black;
+}
+
+.settingsCard .settingsDetails .settingsContent .settingButtons {
     position: relative;
+    display: flex;
+    margin-top: 10px;
+}
+
+.settingsCard .settingsDetails .settingsContent .settingButtons a {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    background: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    margin: 5px;
+    font-size: 18px;
+    transition: 0.2s;
+    font-weight: bold;
+}
+
+.settingsCard .settingsDetails .settingsContent .settingButtons a {
+    font-family: "Roboto", sans-serif;
+    background: black;
+    color: white;
+    height: 30%;
+    width: 120px;
+    font-size: 12px;
+    padding: 7px;
 }
