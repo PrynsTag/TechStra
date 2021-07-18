@@ -8,9 +8,11 @@ class Login extends CI_Controller
 		$view_data = [
 			'header_title' => 'Login - TechStra',
 			'main_view' => 'login_view',
+			'home_image' => 'home-image.jpg',
+			'nav_icon' => 'astra-tech.jpg',
 			'form_attributes' => array('method' => 'post'),
-			'input_username' => array('class' => 'form-control', 'id' => 'username', 'name' => 'username', 'type', 'text'),
-			'input_password' => array('class' => 'form-control', 'id' => 'password', 'name' => 'password', 'type' => 'password')
+			'input_username' => array('class' => 'form-control input', 'id' => 'username', 'name' => 'username', 'type', 'text', 'placeholder' => 'Username'),
+			'input_password' => array('class' => 'form-control input', 'id' => 'password', 'name' => 'password', 'type' => 'password', 'placeholder' => 'Password')
 		];
 
 		$this->load->view('templates/main', $view_data);
@@ -71,7 +73,8 @@ class Login extends CI_Controller
 
 	public function user_logout()
 	{
-		$this->session->unset_userdata('user_info',
+		$this->session->unset_userdata(
+			'user_info',
 			array(
 				"id" => $this->session->userdata("id"),
 				"username" => $this->session->userdata("username")
