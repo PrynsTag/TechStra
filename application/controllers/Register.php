@@ -12,7 +12,8 @@ class Register extends CI_Controller
 
 		$data = [
 			"header_title" => "Sign Up",
-			"main_view" => "register_view"
+			"main_view" => "register_view",
+			'nav_icon' => 'astra-tech.jpg',
 		];
 
 		$this->load->view("templates/main", $data);
