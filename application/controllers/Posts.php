@@ -30,8 +30,8 @@ class Posts extends CI_Controller
         $view_data = [
             'header_title' => 'Add Posts - TechStra',
             'main_view' => 'addPost_view',
-            'input_title' => array('class' => 'form-control input_text', 'name' => 'title', 'type' => 'text', 'placeholder' => 'Title'),
-            'input_description' => array('class' => 'form-control input_text input_textarea', 'name' => 'description', 'type' => 'text', 'placeholder' => 'Description'),
+            'input_title' => array('class' => 'form-control input_text input', 'name' => 'title', 'type' => 'text', 'placeholder' => 'Title'),
+            'input_description' => array('class' => 'form-control input_text input_textarea input', 'name' => 'description', 'type' => 'text', 'placeholder' => 'Description', 'rows' => '10'),
             'input_upload' => array('class' => 'form-control input_text', 'name' => 'imageupload', 'type' => 'file', 'placeholder' => 'Upload Image')
         ];
 
@@ -98,7 +98,7 @@ class Posts extends CI_Controller
 
                 $this->session->set_tempdata('alert_success', 'Add Successfully', 1);
 
-                redirect('posts/add');
+                redirect('posts');
             }
         }
     }
@@ -115,8 +115,9 @@ class Posts extends CI_Controller
             'header_title' => 'Edit Post - Techstra',
             'main_view' => 'editPost_view',
             'posts' => $posts,
-            'input_title' => array('class' => 'form-control input_text', 'name' => 'title', 'type' => 'text', 'placeholder' => 'Title', 'value' => $posts->post_title),
-            'input_description' => array('class' => 'form-control input_text input_textarea', 'name' => 'description', 'type' => 'text', 'placeholder' => 'Description', 'value' => $posts->post_description),
+            'post_id' => $post_id,
+            'input_title' => array('class' => 'form-control input_text input', 'name' => 'title', 'type' => 'text', 'placeholder' => 'Title', 'value' => $posts->post_title),
+            'input_description' => array('class' => 'form-control input_text input_textarea input', 'name' => 'description', 'type' => 'text', 'placeholder' => 'Description', 'value' => $posts->post_description),
             'input_upload' => array('class' => 'form-control input_text', 'name' => 'imageupload', 'type' => 'file', 'placeholder' => 'Upload Image', 'value' => $posts->post_photo)
         ];
 
@@ -180,7 +181,7 @@ class Posts extends CI_Controller
 
                 $this->session->set_tempdata('alert_success', 'Edit post successfully', 1);
 
-                redirect('posts/edit/' . $post_id);
+                redirect('posts');
             }
         }
     }
@@ -193,7 +194,7 @@ class Posts extends CI_Controller
 
         $this->post_model->delete_post($post_id);
 
-        $this->session->set_tempdata('modal_success', 'You have successfully delete a post', 1);
+        $this->session->set_tempdata('alert_success', 'You have successfully deleted a post', 1);
 
         redirect('posts');
     }

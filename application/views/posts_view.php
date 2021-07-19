@@ -1,11 +1,11 @@
-<?php
-// print_r($posts);
-// die();
-?>
-
 <!--Body-->
 <div class="container-fluid" id="cardContainer">
     <div class="headingContainer pt-5">
+        <?php if ($this->session->tempdata('alert_success')) : ?>
+            <div class="alert alert-success">
+                <p><?= $this->session->tempdata('alert_success') ?></p>
+            </div>
+        <?php endif; ?>
         <h1 class="text-center home-title">My Posts</h1>
     </div>
     <div class="bodyContainer">
