@@ -1,21 +1,14 @@
-<?php if ($this->session->tempdata('alert_error')) : ?>
-    <div class="alert alert-danger">
-        <p><?= $this->session->tempdata('alert_error') ?></p>
-    </div>
-<?php endif; ?>
-
-<?php if ($this->session->tempdata('alert_success')) : ?>
-    <div class="alert alert-success">
-        <p><?= $this->session->tempdata('alert_success') ?></p>
-    </div>
-<?php endif; ?>
-
 <!-- Body -->
 <div class="container-fluid post-container">
     <h1 class="post-title">Add Post</h1>
 </div>
 <div class="addpost_container">
     <?= form_open_multipart("posts/add_post", array('method' => 'post')) ?>
+    <?php if ($this->session->tempdata('alert_error')) : ?>
+        <div class="alert alert-danger">
+            <p><?= $this->session->tempdata('alert_error') ?></p>
+        </div>
+    <?php endif; ?>
     <div class="input-group my-4">
         <i class="material-icons addpost_inputicon">title</i>
         <?= form_input($input_title); ?>
