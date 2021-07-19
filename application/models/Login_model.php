@@ -9,4 +9,12 @@ class Login_model extends CI_Model
 
         return $result->result();
     }
+
+    public function get_userinfo($user_id)
+    {
+        $this->db->where('user_id', $user_id);
+        $result = $this->db->get('userinfo');
+
+        return $result->result();
+    }
 }

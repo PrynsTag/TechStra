@@ -1,6 +1,11 @@
+<?php
+$session_data = $this->session->userdata('user_info');
+$userimage = $session_data['userimage'] == NULL || $session_data == '' ? 'default-image.png' : $session_data['userimage'];
+?>
+
 <nav class="navbar navbar-expand-lg head-nav">
 	<div class="container-fluid">
-		<a class="navbar-brand" href="#">TechStra</a>
+		<a class="navbar-brand" href="<?= base_url('home'); ?>">TechStra</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
 			<!-- <span class="navbar-toggler-icon"></span> -->
 			<i class="material-icons menu-icon">menu</i>
@@ -28,7 +33,7 @@
 				</li>
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-						<img class="rounded-circle" src="<?= base_url("assets/images/astra-tech.jpg") ?>" alt="Profile-Image" height="42" width="42">
+						<img class="rounded-circle" src="<?= base_url("assets/uploads/userprofile/" . $userimage) ?>" alt="Profile-Image" height="42" width="42">
 					</a>
 					<div class="dropdown-menu">
 						<a class="dropdown-item" href="<?= base_url("profile"); ?>">Profile</a>

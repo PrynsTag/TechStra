@@ -60,11 +60,15 @@ class Login extends CI_Controller
 			$user = $this->login_model->check_user($query_db);
 
 			if (count($user) == 1) {
-				$user_info = $user[0];
+				$user = $user[0];
+
+				$user_info = $this->login_model->get_userinfo($user->user_id)[0];
+
 
 				$user_data = array(
-					'id' => $user_info->user_id,
-					'username' => $user_info->user_username
+					'id' => $user->user_id,
+					'username' => $user->user_username,
+					'userimage' => $user_info->userinfo_image
 				);
 
 				$this->session->set_userdata('user_info', $user_data);
