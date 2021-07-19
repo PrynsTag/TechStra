@@ -4,6 +4,10 @@ class Home extends CI_Controller
 {
     public function index()
     {
+        if ($this->session->userdata('user_info') == NULL) {
+            redirect('login');
+        }
+
         $view_data = [
             'header_title' => 'Home Page - TechStra',
             'main_view' => 'home_view',

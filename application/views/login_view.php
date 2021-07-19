@@ -47,7 +47,7 @@
             <div class="row">
                 <div class="col-12 p-5">
                     <p class="home-desc mb-0">Share your story</p>
-                    <h1 class="home-title mb-0">Adventure</h1>
+                    <h1 class="login-image-title mb-0">Adventure</h1>
                 </div>
             </div>
         </div>

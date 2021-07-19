@@ -1,9 +1,8 @@
 <main class="form-signin text-center">
-	<?= form_open_multipart("register/validation") ?>
-	<img class="mb-4 align-center" src="<?= base_url("assets/images/astra-tech.jpg") ?>" alt="Astratech" width="72"
-			 height="57">
-	<h1 class="h3 mb-3 fw-normal">Please sign up</h1>
-
+	<?= form_open_multipart("register/validation", array('method' => 'post')) ?>
+	<img class="mb-4 align-center" src="<?= base_url("assets/images/astra-tech.jpg") ?>" alt="Astratech" width="72" height="57">
+	<h1 class="h3 mb-3 fw-normal signup-title">Create Account</h1>
+	<p class="p-eaccount">Already have an account? <a class="a-login" href="login">Login</a></p>
 	<?php
 	if ($this->session->tempdata("register_message")) {
 		echo '<div class="alert alert-success">' . $this->session->tempdata("register_message") . '</div>';
@@ -36,17 +35,11 @@
 	</div>
 
 	<div class="form-floating">
-		<input class="form-control" id="floatingPassword" name="confirm_password" placeholder="Confirm Password"
-					 type="password">
+		<input class="form-control" id="floatingPassword" name="confirm_password" placeholder="Confirm Password" type="password">
 		<label for="floatingPassword">Confirm Password</label>
 	</div>
 
-	<div class="checkbox mb-3">
-		<label>
-			<input type="checkbox" value="remember-me"> Remember me
-		</label>
-	</div>
 	<button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-	<p class="mt-5 mb-3 text-muted">Astratech &copy; 2017–2021</p>
+	<p class="mt-5 mb-3 text-muted">&copy; 2021 TechStra. All Rights Reserved.</p>
 	<?= form_close() ?>
 </main>

@@ -4,6 +4,10 @@ class Posts extends CI_Controller
 {
     public function index()
     {
+        if ($this->session->userdata('user_info') == NULL) {
+            redirect('login');
+        }
+
         $session_data = $this->session->userdata('user_info');
 
         $posts = $this->post_model->getuser_posts($session_data['id']);
@@ -19,6 +23,10 @@ class Posts extends CI_Controller
 
     public function add()
     {
+        if ($this->session->userdata('user_info') == NULL) {
+            redirect('login');
+        }
+
         $view_data = [
             'header_title' => 'Add Posts - TechStra',
             'main_view' => 'addPost_view',
@@ -32,6 +40,10 @@ class Posts extends CI_Controller
 
     public function add_post()
     {
+        if ($this->session->userdata('user_info') == NULL) {
+            redirect('login');
+        }
+
         $input_rules = array(
             array(
                 'field' => 'title',
@@ -93,6 +105,10 @@ class Posts extends CI_Controller
 
     public function edit($post_id)
     {
+        if ($this->session->userdata('user_info') == NULL) {
+            redirect('login');
+        }
+
         $posts = $this->post_model->getPostById($post_id)[0];
 
         $view_data = [
@@ -109,6 +125,10 @@ class Posts extends CI_Controller
 
     public function edit_post($post_id)
     {
+        if ($this->session->userdata('user_info') == NULL) {
+            redirect('login');
+        }
+
         $input_rules = array(
             array(
                 'field' => 'title',
@@ -167,6 +187,10 @@ class Posts extends CI_Controller
 
     public function delete($post_id)
     {
+        if ($this->session->userdata('user_info') == NULL) {
+            redirect('login');
+        }
+
         $this->post_model->delete_post($post_id);
 
         $this->session->set_tempdata('modal_success', 'You have successfully delete a post', 1);

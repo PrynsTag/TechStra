@@ -5,6 +5,10 @@ class Login extends CI_Controller
 {
 	public function index()
 	{
+		if ($this->session->userdata('user_info') != NULL) {
+			redirect('home');
+		}
+
 		$view_data = [
 			'header_title' => 'Login - TechStra',
 			'main_view' => 'login_view',
@@ -20,6 +24,10 @@ class Login extends CI_Controller
 
 	public function user_login()
 	{
+		if ($this->session->userdata('user_info') != NULL) {
+			redirect('home');
+		}
+
 		$input_rules = array(
 			array(
 				'field' => 'username',
@@ -69,17 +77,5 @@ class Login extends CI_Controller
 				redirect('login');
 			}
 		}
-	}
-
-	public function user_logout()
-	{
-		$this->session->unset_userdata(
-			'user_info',
-			array(
-				"id" => $this->session->userdata("id"),
-				"username" => $this->session->userdata("username")
-			)
-		);
-		redirect("login");
 	}
 }

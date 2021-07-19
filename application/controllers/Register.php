@@ -4,23 +4,26 @@ include ".config";
 
 class Register extends CI_Controller
 {
-	public function index($data, $page = "templates/main")
+	public function index()
 	{
-		$this->load->view($page, $data);
-	}
+		if ($this->session->userdata('user_info') != NULL) {
+			redirect('home');
+		}
 
-	public function register_user()
-	{
 		$data = [
 			"header_title" => "Sign Up",
 			"main_view" => "register_view"
 		];
 
-		$this->index($data);
+		$this->load->view("templates/main", $data);
 	}
 
 	public function validation()
 	{
+		if ($this->session->userdata('user_info') != NULL) {
+			redirect('home');
+		}
+
 		global $gmailUsername;
 		global $gmailPassword;
 
@@ -95,6 +98,10 @@ class Register extends CI_Controller
 
 	public function verify_email()
 	{
+		if ($this->session->userdata('user_info') != NULL) {
+			redirect('home');
+		}
+
 		$uri_code = $this->uri->segment(3);
 
 		$result = $this->register_model->get_code($uri_code);

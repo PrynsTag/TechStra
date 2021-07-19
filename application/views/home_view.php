@@ -1,10 +1,10 @@
 <div class="container-fluid" id="cardContainer">
-	<div class="headingContainer">
-		<h1>Featured</h1>
+	<div class="headingContainer pt-5">
+		<h1 class="text-center home-title">Stories</h1>
 	</div>
 	<div class="bodyContainer">
 		<div class="contentContainer">
-			<div class="row row-cols-1 row-cols-md-3 g-4 collectionCard">
+			<div class="row row-cols-1 row-cols-md-3 g-4 collectionCard pb-5 mb-5">
 				<?php if (count($posts) != 0 || count($posts) != NULL) : ?>
 					<?php foreach ($posts as $item) : ?>
 						<div class="col col-remove-margin">

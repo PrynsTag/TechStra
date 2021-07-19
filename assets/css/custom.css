@@ -11,13 +11,8 @@
 }
 
 /* Profile CSS */
-body {
-	background-color: #B3E5FC;
-	border-radius: 10px
-}
-
 .card {
-	width: 400px;
+	width: 100%;
 	border: none;
 	border-radius: 10px;
 	background-color: #fff
