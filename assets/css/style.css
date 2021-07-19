@@ -224,6 +224,32 @@ a {
     color: var(--black);
 }
 
+#cardContainer {
+    margin-bottom: 2rem;
+}
+
+/* Posts Page */
+
+.addpost-container {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem 0rem;
+}
+
+.btn-addpost {
+    color: var(--white);
+    background-color: var(--darkestblue);
+    padding: 0.75rem;
+    margin-right: 2rem;
+}
+
+.card-top-button {
+    color: var(--white);
+    background-color: #abb8c762;
+    padding: 1rem;
+    border-radius: 100%;
+}
+
 /* Footer */
 
 .f-desc-container {
