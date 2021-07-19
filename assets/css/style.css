@@ -21,6 +21,7 @@ html {
 html,
 body {
     height: 100%;
+	overflow-y: hidden;
 }
 
 a {
@@ -448,4 +449,12 @@ a {
     .addpost_container {
         padding: 5rem 25rem;
     }
+}
+
+/* Register */
+.register-image {
+    background-image: url("../images/home/register-image.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
 }
