@@ -1,10 +1,19 @@
-<main class="form-signin text-center">
+<div class="container-fluid post-container">
+	<h1 class="post-title">Edit Password</h1>
+</div>
+<div class="addpost_container">
 	<?= form_open_multipart("profile/change_password") ?>
-	<img class="mb-4 align-center" src="<?= base_url("assets/images/user_profile/$userinfo_image") ?>" alt="User Profile" width="72"
-			 height="57">
-	<h1 class="h3 mb-3 fw-normal"><?= $header_title ?></h1>
+	<div class="image d-flex justify-content-center">
+		<img src='<?php
+		if (isset($image)) {
+			echo base_url("assets/uploads/user_profile/$image");
+		} else {
+			echo "https://img.icons8.com/bubbles/100/000000/user.png";
+		}
+		?>' class="rounded-circle" width="96" height="86" alt="User-Profile">
+	</div>
 
-	<?php
+<?php
 	if ($this->session->tempdata("change_success")) {
 		echo '<div class="alert alert-success">' . $this->session->tempdata("change_success") . '</div>';
 	} else if ($this->session->tempdata("change_error")) {
@@ -12,25 +21,25 @@
 	}
 	?>
 
-	<div class="form-floating mb-3">
-		<label for="floatingInput">Current Password</label>
-		<input class="form-control" id="floatingInput" name="curr-pass" type="password">
+	<div class="input-group my-4">
+		<input class="form-control" id="curr-pass" name="curr-pass" type="password" placeholder="Current Password">
 		<small class="text-danger w-100"><?= form_error("curr-pass") ?></small>
 	</div>
 
-	<div class="form-floating mb-3">
-		<label for="floatingInput">New Password</label>
-		<input class="form-control" id="floatingInput" name="new-pass" type="password">
+	<div class="input-group my-4">
+		<input class="form-control" id="new-pass" name="new-pass" type="password" placeholder="New Password">
 		<small class="text-danger w-100"><?= form_error("new-pass") ?></small>
 	</div>
 
-	<div class="form-floating mb-3">
-		<label for="floatingInput">New Password</label>
-		<input class="form-control" id="floatingInput" name="con-pass" type="password">
+	<div class="input-group my-4">
+		<input class="form-control" id="con-pass" name="con-pass" type="password" placeholder="Confirm Password">
 		<small class="text-danger w-100"><?= form_error("con-pass") ?></small>
 	</div>
 
-	<button class="w-100 btn btn-lg btn-primary" type="submit">Submit</button>
-	<a href="<?= base_url("profile/user") ?>" class="w-100 btn btn-lg btn-secondary" type="button">Back</a>
-	<?= form_close() ?>
-</main>
+	<div class="d-flex flex-column justify-content-end">
+		<button type="submit" class="btn btn-login w-100 mb-3">Submit</button>
+		<a class="btn-back text-center" href="<?= site_url("profile/user") ?>">Back</a>
+	</div>
+
+	<?php echo form_close(); ?>
+</div>
