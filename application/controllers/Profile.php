@@ -61,17 +61,26 @@ class Profile extends CI_Controller
 				"userinfo_bio" => $bio,
 				"userinfo_image" => $image
 			];
+
 			if ($image) {
 				$user_id = $this->session->userdata("user_info")["id"];
+				$userinfo_data = $this->profile_model->get_userinfo($user_id);
 
-				$update_result = $this->profile_model->update_userdata($user_data, $user_id);
+				if (count($userinfo_data) === 0) {
+					$result = $this->profile_model->insert_userinfo($user_data, $user_id);
+					$successful_message = "Account Information Created Successfully!";
+				} else {
+					$result = $this->profile_model->update_userdata($user_data, $user_id);
+					$successful_message = "Account Edited Successfully!";
+				}
 
-				if ($update_result) {
-					$this->session->set_tempdata("profile_success", "Account Edited Successfully!", 1);
+				if ($result) {
+					$this->session->set_tempdata("profile_success", $successful_message, 1);
 				} else {
 					$this->session->set_tempdata("profile_error", "Account Edit Failed.", 1);
 				}
 				$this->index(array_merge($user_data, $data));
+
 			} else {
 				$this->session->set_tempdata("profile_error", "Something's wrong with your image.", 1);
 			}
