@@ -1,8 +1,17 @@
-<main class="form-signin text-center">
+<div class="container-fluid post-container">
+	<h1 class="post-title">Edit Profile</h1>
+</div>
+<div class="addpost_container">
 	<?= form_open_multipart("profile/edit_profile") ?>
-	<img class="mb-4 align-center" src="<?= base_url("assets/uploads/user_profile/$userinfo_image") ?>" alt="User Profile" width="72"
-			 height="57">
-	<h1 class="h3 mb-3 fw-normal"><?= $header_title ?></h1>
+	<div class="image d-flex justify-content-center">
+		<img src='<?php
+		if (isset($image)) {
+			echo base_url("assets/uploads/user_profile/$image");
+		} else {
+			echo "https://img.icons8.com/bubbles/100/000000/user.png";
+		}
+		?>' class="rounded-circle" width="96" alt="User-Profile">
+	</div>
 
 	<?php
 	if ($this->session->tempdata("profile_success")) {
@@ -12,30 +21,33 @@
 	}
 	?>
 
-	<div class="form-floating mb-3">
-		<input class="form-control" id="floatingInput" name="firstname"
-					 value="<?= set_value("firstname", $userinfo_firstname) ?>" type="text">
+	<div class="input-group my-4">
+		<input class="form-control" id="first_name" name="firstname"
+					 placeholder="First Name" type="text" value="<?= set_value("firstname", $userinfo_firstname) ?>">
 		<small class="text-danger w-100"><?= form_error("firstname") ?></small>
 	</div>
 
-	<div class="form-floating mb-3">
-		<input class="form-control" id="floatingInput" name="lastname"
-					 value="<?= set_value("lastname", $userinfo_lastname) ?>" type="text">
+	<div class="input-group my-4">
+		<input class="form-control" id="last_name" name="lastname"
+					 value="<?= set_value("lastname", $userinfo_lastname) ?>" placeholder="Last Name" type="text">
 		<small class="text-danger w-100"><?= form_error("lastname") ?></small>
 	</div>
 
-		<div class="form-floating mb-3">
-			<textarea class="form-control" id="floatingInput" name="bio"><?= $userinfo_bio ?></textarea>
-			<small class="text-danger w-100"><?= form_error("bio") ?></small>
-		</div>
+	<div class="input-group my-4">
+		<textarea class="form-control" id="description" name="bio"
+							placeholder="Tell Something About Yourself"><?= $userinfo_bio ?></textarea>
+		<small class="text-danger w-100"><?= form_error("bio") ?></small>
+	</div>
 
-	<div class="mb-3">
-		<label for="formFile" class="form-label">Choose your profile picture</label>
-		<input class="form-control" id="formFile" name="image" type="file">
+	<div class="input-group my-4">
+		<input class="form-control" id="file-upload" name="image" type="file">
 		<small class="text-danger w-100"><?= form_error("image") ?></small>
 	</div>
 
-	<button class="w-100 btn btn-lg btn-primary" type="submit">Submit</button>
-	<a href="<?= base_url("profile/user") ?>" class="w-100 btn btn-lg btn-secondary" type="button">Back</a>
-	<?= form_close() ?>
-</main>
+	<div class="d-flex flex-column justify-content-end">
+		<button type="submit" class="btn btn-login w-100 mb-3">Submit</button>
+		<a class="btn-back text-center" href="<?= site_url("profile/user") ?>">Back</a>
+	</div>
+
+	<?php echo form_close(); ?>
+</div>
