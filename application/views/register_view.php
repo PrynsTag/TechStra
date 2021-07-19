@@ -37,7 +37,7 @@
 
 					<div class="form-group my-4">
 						<span class="input-icon material-icons">account_circle</span>
-						<input class="form-control input" id="user-name" name="username" placeholder="Username" type="email">
+						<input class="form-control input" id="user-name" name="username" placeholder="Username" type="text">
 					</div>
 
 					<div class="form-group my-4">
