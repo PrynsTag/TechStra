@@ -12,12 +12,12 @@
 				<div class="col">
 					<div class="title-container">
 						<h1 class="login-title fw-bold">Create Account.</h1>
+						<p class="login-desc">Share your story using your login credentials</p>
 						<?php
 						if ($this->session->tempdata("register_message")) {
 							echo '<div class="alert alert-success">' . $this->session->tempdata("register_message") . '</div>';
 						}
 						?>
-						<p class="login-desc">Share your story using your login credentials</p>
 					</div>
 					<?php echo form_open("register/validation"); ?>
 					<div class="form-group my-4">
@@ -58,7 +58,7 @@
 					<div class="row">
 						<div class="col pt-5">
 							<p class="dn-account">Already have an account?
-								<a class="a-register fw-bold" href="login">Sign in</a>
+								<a class="a-register fw-bold" href="<?= site_url("login") ?>">Sign in</a>
 							</p>
 						</div>
 					</div>
