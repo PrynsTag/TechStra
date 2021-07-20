@@ -26,7 +26,7 @@ $userimage = $session_data['userimage'] == NULL || $session_data == '' ? 'defaul
 						<img class="rounded-circle" src="<?= base_url("assets/uploads/userprofile/" . $userimage) ?>" alt="Profile-Image" height="42" width="42">
 					</a>
 					<div class="dropdown-menu" style="min-width: inherit">
-						<a class="dropdown-item" href="<?= base_url("profile/user") ?>">Profile</a>
+						<a class="dropdown-item" href="<?= base_url("profile") ?>">Profile</a>
 						<a class="dropdown-item" href="#">Setting</a>
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" href="<?= base_url("logout") ?>">Logout</a>

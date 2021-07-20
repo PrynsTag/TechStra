@@ -382,6 +382,38 @@ a {
     text-align: justify;
 }
 
+/* Register Page */
+
+.register-image {
+    background-image: url("../images/home/register-image.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+/* Profile Page */
+
+.profile-card-container {
+    margin: 5rem 0rem;
+    padding: 0rem 3rem;
+}
+
+.card-btn-edit {
+    margin-right: 1.5rem;
+}
+
+.stats {
+    padding: 0.5rem 1rem;
+}
+
+.stats:not(:last-child) {
+    margin-right: 2rem;
+}
+
+.profile-card {
+    padding: 4rem 3rem;
+}
+
 /* Media Queries */
 
 @media (min-width: 576px) {
@@ -399,6 +431,10 @@ a {
 
     .addpost_container {
         padding: 5rem 10rem;
+    }
+
+    .profile-card-container {
+        padding: 0rem 5rem;
     }
 }
 
@@ -426,6 +462,10 @@ a {
 
     .aboutBody {
         padding: 3rem 1rem;
+    }
+
+    .profile-card-container {
+        padding: 0rem 10rem;
     }
 }
 
@@ -472,12 +512,20 @@ a {
     .card-subtitle {
         font-size: 0.75rem;
     }
+
+    .profile-card-container {
+        padding: 0rem 20rem;
+    }
 }
 
 /* X-Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
     .addpost_container {
         padding: 5rem 25rem;
+    }
+
+    .profile-card-container {
+        padding: 0rem 30rem;
     }
 }
 
@@ -504,12 +552,8 @@ a {
     .addpost_container {
         padding: 5rem 25rem;
     }
-}
 
-/* Register */
-.register-image {
-    background-image: url("../images/home/register-image.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
+    .profile-card-container {
+        padding: 0rem 40rem;
+    }
 }
