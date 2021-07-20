@@ -391,6 +391,16 @@ a {
     background-position: center center;
 }
 
+.register-main-title {
+    color: var(--white);
+    text-shadow: 1px 1px 10px var(--black);
+}
+
+.register-desc-title {
+    color: var(--white);
+    text-shadow: 1px 1px 10px var(--black);
+}
+
 /* Profile Page */
 
 .profile-card-container {

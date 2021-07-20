@@ -3,8 +3,7 @@
 		<div class="col-sm-5 home-left-container">
 			<div class="nav-container row p-1">
 				<div class="col d-flex justify-content-start align-items-center pb-2">
-					<img class="home-navicon rounded-circle" src="<?= base_url("assets/images/icon/" . $nav_icon) ?>"
-							 alt="website-logo">
+					<img class="home-navicon rounded-circle" src="<?= base_url("assets/images/icon/" . $nav_icon) ?>" alt="website-logo">
 					<span class="nav-title ps-3 fw-bolder">TechStra</span>
 				</div>
 			</div>
@@ -12,7 +11,7 @@
 				<div class="col">
 					<div class="title-container">
 						<h1 class="login-title fw-bold">Create Account.</h1>
-						<p class="login-desc">Share your story using your login credentials</p>
+						<p class="login-desc">Create your account to share your story</p>
 						<?php
 						if ($this->session->tempdata("register_message")) {
 							echo '<div class="alert alert-success">' . $this->session->tempdata("register_message") . '</div>';
@@ -47,8 +46,7 @@
 
 					<div class="form-group my-4">
 						<span class="input-icon material-icons">lock</span>
-						<input class="form-control input" id="confirm-password" name="confirm_password"
-									 placeholder="Confirm Password" type="password">
+						<input class="form-control input" id="confirm-password" name="confirm_password" placeholder="Confirm Password" type="password">
 					</div>
 
 					<div class="d-flex justify-content-end">
@@ -71,8 +69,8 @@
 		<div class="col-sm-7 register-image home-right-container">
 			<div class="row">
 				<div class="col-12 p-5">
-					<p class="home-desc mb-0 text-primary">Share your story</p>
-					<h1 class="login-image-title mb-0 text-primary">Adventure</h1>
+					<p class="home-desc mb-0 register-desc-title">Share your story</p>
+					<h1 class="login-image-title mb-0 register-main-title">Adventure</h1>
 				</div>
 			</div>
 		</div>

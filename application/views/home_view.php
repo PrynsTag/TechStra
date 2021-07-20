@@ -24,8 +24,8 @@
 					<?php endforeach; ?>
 				<?php else : ?>
 					<div class="noitems">
-						<p id="head">No Posts Yet!</p>
-						<p id="sub">You can Add Post at <a href="<?= base_url('home/collection'); ?>">MY COLLECTION</a></p>
+						<p id="head">No Stories Yet!</p>
+						<p id="sub">You can Add Post at <a href="<?= base_url('posts'); ?>">Posts</a></p>
 					</div>
 				<?php endif; ?>
 			</div>

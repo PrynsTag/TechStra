@@ -5,7 +5,7 @@
 <?php endif; ?>
 
 <div class="container-fluid h-100">
-	<div class="row h-100">
+	<div class="row">
 		<div class="col-sm-5 home-left-container">
 			<div class="nav-container row">
 				<div class="col d-flex justify-content-start align-items-center">

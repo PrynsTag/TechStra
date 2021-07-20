@@ -41,7 +41,7 @@
                     <?php endforeach; ?>
                 <?php else : ?>
                     <div class="noitems">
-                        <p id="head">No Posts Yet!</p>
+                        <p id="head">No Stories Yet!</p>
                         <p id="sub">You can start by pressing the 'Add Post' button</p>
                     </div>
                 <?php endif; ?>
