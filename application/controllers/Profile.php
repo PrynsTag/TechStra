@@ -44,7 +44,6 @@ class Profile extends CI_Controller
 
 	public function edit()
 	{
-
 		$input_rules = array(
 			array(
 				'field' => 'firstname',
@@ -101,6 +100,16 @@ class Profile extends CI_Controller
 				if ($db_result) {
 					$this->session->set_tempdata('alert_success', 'You have successully edited your profile', 1);
 
+					$newSession = [
+						'id' => $session_data['id'],
+						'username' => $session_data['username'],
+						'userimage' => $userImage
+					];
+
+					$this->session->unset_userdata('user_info');
+
+					$this->session->set_userdata('user_info', $newSession);
+
 					redirect('profile');
 				} else {
 					$this->session->set_tempdata('alert_error', 'There is something wrong from database', 1);
@@ -109,23 +118,6 @@ class Profile extends CI_Controller
 				}
 			}
 		}
-	}
-
-	public function upload_image($field_name)
-	{
-		$config['upload_path'] = './assets/uploads/user_profile';
-		$config['allowed_types'] = 'gif|jpg|png';
-		$config['max_size'] = 0;
-		$config['max_width'] = 0;
-		$config['max_height'] = 0;
-
-		$this->upload->initialize($config);
-		$uploaded = $this->upload->do_upload($field_name);
-
-		if ($uploaded) {
-			return $this->upload->data("file_name");
-		}
-		return NULL;
 	}
 
 	public function change_password()
