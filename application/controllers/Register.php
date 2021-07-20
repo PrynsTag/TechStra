@@ -4,26 +4,24 @@ include ".config";
 
 class Register extends CI_Controller
 {
-	public function index()
+	public function index($data, $page = "templates/main")
 	{
-		if ($this->session->userdata('user_info') != NULL) {
-			redirect('home');
-		}
+		$this->load->view($page, $data);
+	}
 
+	public function register_user()
+	{
 		$data = [
 			"header_title" => "Sign Up",
-			"main_view" => "register_view"
+			"main_view" => "register_view",
+			"nav_icon" => "astra-tech.jpg",
 		];
 
-		$this->load->view("templates/main", $data);
+		$this->index($data);
 	}
 
 	public function validation()
 	{
-		if ($this->session->userdata('user_info') != NULL) {
-			redirect('home');
-		}
-
 		global $gmailUsername;
 		global $gmailPassword;
 
@@ -36,7 +34,6 @@ class Register extends CI_Controller
 
 		if ($this->form_validation->run()) {
 			$verification_key = mt_rand(100000, 999999);
-			//            $encrypted_password = $this->encrypt->encode($this->input->post("password")); if password needs to encrypted
 			$data = array(
 				"user_firstname" => $this->input->post("firstname"),
 				"user_lastname" => $this->input->post("lastname"),
@@ -98,10 +95,6 @@ class Register extends CI_Controller
 
 	public function verify_email()
 	{
-		if ($this->session->userdata('user_info') != NULL) {
-			redirect('home');
-		}
-
 		$uri_code = $this->uri->segment(3);
 
 		$result = $this->register_model->get_code($uri_code);
@@ -115,13 +108,22 @@ class Register extends CI_Controller
 			);
 
 			$updated = $this->register_model->verify_user($data, $db_code);
+
+			if ($updated) {
+				$this->session->set_tempdata('email_success', "User Verified! You may now login", 1);
+			} else {
+				$this->session->set_tempdata('email_fail', "User Not Verified.. Check your email.", 1);
+			}
 		}
 
 		$this->index(array(
-			"email" => $result->user_email,
-			"updated" => $updated,
-			"main_view" => "register_view",
-			"header_title" => "Login - Beta Juniors",
+			'header_title' => 'Login - TechStra',
+			'main_view' => 'login_view',
+			'home_image' => 'home-image.jpg',
+			'nav_icon' => 'astra-tech.jpg',
+			'form_attributes' => array('method' => 'post'),
+			'input_username' => array('class' => 'form-control input', 'id' => 'username', 'name' => 'username', 'type', 'text', 'placeholder' => 'Username'),
+			'input_password' => array('class' => 'form-control input', 'id' => 'password', 'name' => 'password', 'type' => 'password', 'placeholder' => 'Password')
 		));
 	}
 }

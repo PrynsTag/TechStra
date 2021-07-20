@@ -1,45 +1,80 @@
-<main class="form-signin text-center">
-	<?= form_open_multipart("register/validation", array('method' => 'post')) ?>
-	<img class="mb-4 align-center" src="<?= base_url("assets/images/astra-tech.jpg") ?>" alt="Astratech" width="72" height="57">
-	<h1 class="h3 mb-3 fw-normal signup-title">Create Account</h1>
-	<p class="p-eaccount">Already have an account? <a class="a-login" href="login">Login</a></p>
-	<?php
-	if ($this->session->tempdata("register_message")) {
-		echo '<div class="alert alert-success">' . $this->session->tempdata("register_message") . '</div>';
-	}
-	?>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-5 home-left-container">
+			<div class="nav-container row p-1">
+				<div class="col d-flex justify-content-start align-items-center pb-2">
+					<img class="home-navicon rounded-circle" src="<?= base_url("assets/images/icon/" . $nav_icon) ?>"
+							 alt="website-logo">
+					<span class="nav-title ps-3 fw-bolder">TechStra</span>
+				</div>
+			</div>
+			<div class="row p-5">
+				<div class="col">
+					<div class="title-container">
+						<h1 class="login-title fw-bold">Create Account.</h1>
+						<p class="login-desc">Share your story using your login credentials</p>
+						<?php
+						if ($this->session->tempdata("register_message")) {
+							echo '<div class="alert alert-success">' . $this->session->tempdata("register_message") . '</div>';
+						}
+						?>
+					</div>
+					<?php echo form_open("register/validation"); ?>
+					<div class="form-group my-4">
+						<span class="input-icon material-icons">badge</span>
+						<input class="form-control input" id="first_name" name="firstname" placeholder="First Name" type="text">
+					</div>
 
-	<div class="form-floating mb-3">
-		<input class="form-control" id="floatingInput" name="firstname" placeholder="Juan" type="text">
-		<label for="floatingInput">First Name</label>
+					<div class="form-group my-4">
+						<span class="input-icon material-icons">badge</span>
+						<input class="form-control input" id="last_name" name="lastname" placeholder="Last Name" type="text">
+					</div>
+
+					<div class="form-group my-4">
+						<span class="input-icon material-icons">email</span>
+						<input class="form-control input" id="email-address" name="email" placeholder="Email Address" type="email">
+					</div>
+
+					<div class="form-group my-4">
+						<span class="input-icon material-icons">account_circle</span>
+						<input class="form-control input" id="user-name" name="username" placeholder="Username" type="text">
+					</div>
+
+					<div class="form-group my-4">
+						<span class="input-icon material-icons">lock</span>
+						<input class="form-control input" id="pass-word" name="password" placeholder="Password" type="password">
+					</div>
+
+					<div class="form-group my-4">
+						<span class="input-icon material-icons">lock</span>
+						<input class="form-control input" id="confirm-password" name="confirm_password"
+									 placeholder="Confirm Password" type="password">
+					</div>
+
+					<div class="d-flex justify-content-end">
+						<button type="submit" class="btn btn-login w-100">Sign Up</button>
+					</div>
+					<?php echo form_close(); ?>
+					<div class="row">
+						<div class="col pt-5">
+							<p class="dn-account">Already have an account?
+								<a class="a-register fw-bold" href="<?= site_url("login") ?>">Sign in</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row pt-4">
+				<p class="text-center footer-title">&copy; 2021 TechStra. All Rights Reserved.</p>
+			</div>
+		</div>
+		<div class="col-sm-7 register-image home-right-container">
+			<div class="row">
+				<div class="col-12 p-5">
+					<p class="home-desc mb-0 text-primary">Share your story</p>
+					<h1 class="login-image-title mb-0 text-primary">Adventure</h1>
+				</div>
+			</div>
+		</div>
 	</div>
-
-	<div class="form-floating mb-3">
-		<input class="form-control" id="floatingInput" name="lastname" placeholder="Dela Cruz" type="text">
-		<label for="floatingInput">Last Name</label>
-	</div>
-
-	<div class="form-floating mb-3">
-		<input class="form-control" id="floatingInput" name="email" placeholder="juan_delacruz@gmail.com" type="email">
-		<label for="floatingInput">Email Address</label>
-	</div>
-
-	<div class="form-floating mb-3">
-		<input class="form-control" id="floatingInput" name="username" placeholder="JuanDelaCruz" type="text">
-		<label for="floatingInput">Username</label>
-	</div>
-
-	<div class="form-floating">
-		<input class="form-control" id="floatingPassword" name="password" placeholder="Password" type="password">
-		<label for="floatingPassword">Password</label>
-	</div>
-
-	<div class="form-floating">
-		<input class="form-control" id="floatingPassword" name="confirm_password" placeholder="Confirm Password" type="password">
-		<label for="floatingPassword">Confirm Password</label>
-	</div>
-
-	<button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-	<p class="mt-5 mb-3 text-muted">&copy; 2021 TechStra. All Rights Reserved.</p>
-	<?= form_close() ?>
-</main>
+</div>
