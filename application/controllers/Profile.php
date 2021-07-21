@@ -4,10 +4,10 @@ class Profile extends CI_Controller
 {
 	public function index()
 	{
+		$this->redirect();
+
 		$user_id = $this->session->userdata("user_info")["id"];
 		$user_data = $this->profile_model->join_userdata($user_id)[0];
-
-		// print_r($user_data);die();
 
 		$data = [
 			"header_title" => "Profile - TechStra",
@@ -23,11 +23,11 @@ class Profile extends CI_Controller
 
 	public function edit_profile()
 	{
+		$this->redirect();
+
 		$session_data = $this->session->userdata('user_info');
 
 		$user_db = $this->profile_model->get_userinfo($session_data['id'])[0];
-
-		// print_r($user_db);die();
 
 		$view_data = [
 			'header_title' => 'Edit Profile',
@@ -44,6 +44,8 @@ class Profile extends CI_Controller
 
 	public function edit()
 	{
+		$this->redirect();
+
 		$input_rules = array(
 			array(
 				'field' => 'firstname',
@@ -122,6 +124,8 @@ class Profile extends CI_Controller
 
 	public function change_password()
 	{
+		$this->redirect();
+
 		$session_data = $this->session->userdata('user_info');
 
 		$view_data = [
@@ -138,6 +142,8 @@ class Profile extends CI_Controller
 
 	public function password()
 	{
+		$this->redirect();
+
 		$input_rules = array(
 			array(
 				'field' => 'curr-pass',
@@ -190,6 +196,13 @@ class Profile extends CI_Controller
 
 				redirect('profile/change_password');
 			}
+		}
+	}
+
+	public function redirect()
+	{
+		if ($this->session->userdata('user_info') == NULL) {
+			redirect('login');
 		}
 	}
 }

@@ -4,9 +4,7 @@ class About extends CI_Controller
 {
     public function index()
     {
-        if ($this->session->userdata('user_info') == NULL) {
-            redirect('login');
-        }
+        $this->redirect();
 
         $view_data = [
             'header_title' => 'About - TechStra',
@@ -15,5 +13,12 @@ class About extends CI_Controller
         ];
 
         $this->load->view('templates/home', $view_data);
+    }
+
+    public function redirect()
+    {
+        if ($this->session->userdata('user_info') == NULL) {
+            redirect('login');
+        }
     }
 }
