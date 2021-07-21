@@ -18,6 +18,10 @@ class Profile_model extends CI_Model
 		$image = $user_data["userinfo_image"];
 
 		$this->db->trans_start();
+		$this->db->query("UPDATE user 
+							SET user_firstname = '$firstname', 
+							    user_lastname = '$lastname' 
+							WHERE user_id = '$user_id'");
 		$this->db->query("UPDATE userinfo 
 							SET userinfo_firstname = '$firstname', 
 							    userinfo_lastname = '$lastname', 

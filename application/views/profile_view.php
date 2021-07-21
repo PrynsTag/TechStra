@@ -1,3 +1,7 @@
+<?php
+$session_data = $this->session->userdata('user_info');
+$userimage = $session_data['userimage'] == NULL || $session_data == '' ? 'default-image.png' : $session_data['userimage'];
+?>
 <div class="contain mt-5 d-flex justify-content-center align-items-center flex-column profile-card-container">
 
 	<!--Alert Success -->
@@ -16,7 +20,7 @@
 
 	<div class="card profile-card">
 		<div class="image d-flex justify-content-center">
-			<img class="rounded-circle" src="<?= $image == NULL || $image == '' ? base_url("assets/uploads/userprofile/default-image.png") : base_url("assets/uploads/userprofile/$image"); ?>" width="96" height="86" alt="User-Profile">
+			<img class="rounded-circle" src="<?= $userimage === NULL || $userimage === '' ? base_url("assets/uploads/user_profile/default-image.png") : base_url("assets/uploads/user_profile/$userimage") ?>" width="96" height="86" alt="User-Profile">
 		</div>
 		<div class="ml-3 w-100">
 			<h4 class="mb-0 mt-0 pt-3 pb-1 text-center"><?= $firstname . " " . $lastname ?></h4>
