@@ -1,3 +1,7 @@
+<?php
+$session_data = $this->session->userdata('user_info');
+$userimage = $session_data['userimage'] == NULL || $session_data == '' ? 'default-image.png' : $session_data['userimage'];
+?>
 <div class="container-fluid post-container">
 	<h1 class="post-title">Edit Password</h1>
 </div>
@@ -5,10 +9,10 @@
 	<?= form_open_multipart("profile/change_password") ?>
 	<div class="image d-flex justify-content-center">
 		<img src='<?php
-		if (isset($image)) {
-			echo base_url("assets/uploads/user_profile/$image");
+		if (isset($userimage)) {
+			echo base_url("assets/uploads/user_profile/$userimage");
 		} else {
-			echo "https://img.icons8.com/bubbles/100/000000/user.png";
+			echo base_url("assets/uploads/user_profile/default-image.png");
 		}
 		?>' class="rounded-circle" width="96" height="86" alt="User-Profile">
 	</div>
