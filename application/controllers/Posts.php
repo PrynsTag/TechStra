@@ -7,16 +7,18 @@ class Posts extends CI_Controller
         $this->redirect();
 
         $session_data = $this->session->userdata('user_info');
+        $user_id = $this->session->userdata("user_info")["id"];
+		$user_data = (array)$this->profile_model->join_userdata($user_id)[0];
 
         $posts = $this->post_model->getuser_posts($session_data['id']);
 
-        $view_data = [
+        $data = [
             'header_title' => 'Posts - TechStra',
             'main_view' => 'posts_view',
             'posts' => $posts
         ];
 
-        $this->load->view('templates/home', $view_data);
+        $this->load->view('templates/home', array_merge($user_data, $data));
     }
 
     public function add()

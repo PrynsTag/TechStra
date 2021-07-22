@@ -1,7 +1,3 @@
-<?php
-$session_data = $this->session->userdata('user_info');
-$userimage = $session_data['userimage'] == NULL || $session_data == '' ? 'default-image.png' : $session_data['userimage'];
-?>
 <div class="container-fluid post-container">
 	<h1 class="post-title">Edit Password</h1>
 </div>
@@ -9,8 +5,8 @@ $userimage = $session_data['userimage'] == NULL || $session_data == '' ? 'defaul
 	<?= form_open_multipart("profile/change_password") ?>
 	<div class="image d-flex justify-content-center">
 		<img src='<?php
-		if (isset($userimage)) {
-			echo base_url("assets/uploads/user_profile/$userimage");
+		if (isset($userinfo_image)) {
+			echo base_url("assets/uploads/user_profile/" . $userinfo_image);
 		} else {
 			echo base_url("assets/uploads/user_profile/default-image.png");
 		}

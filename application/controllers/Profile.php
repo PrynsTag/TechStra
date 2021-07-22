@@ -11,21 +11,19 @@ class Profile extends CI_Controller
 	public function user()
 	{
 		$user_id = $this->session->userdata("user_info")["id"];
-		$user_data = $this->profile_model->join_userdata($user_id)[0];
-
+		$user_data = (array)$this->profile_model->join_userdata($user_id)[0];
 		$data = [
 			"header_title" => "Profile",
 			"main_view" => "profile_view",
-			"firstname" => $user_data->user_firstname,
-			"lastname" => $user_data->user_lastname,
-			"bio" => $user_data->userinfo_bio,
-			"image" => $user_data->userinfo_image
 		];
-		$this->index($data);
+		$this->index(array_merge($user_data, $data));
 	}
 
 	public function edit_profile()
 	{
+		$user_id = $this->session->userdata("user_info")["id"];
+		$user_data = $this->profile_model->join_userdata($user_id)[0];
+
 		$data = [
 			"header_title" => "Edit Profile",
 			"main_view" => $this->uri->segment(2) . "_view"
@@ -110,6 +108,9 @@ class Profile extends CI_Controller
 
 	public function change_password()
 	{
+		$user_id = $this->session->userdata("user_info")["id"];
+		$user_data = (array)$this->profile_model->join_userdata($user_id)[0];
+
 		$data = [
 			"header_title" => "Change Password",
 			"main_view" => $this->uri->segment(2) . "_view"
@@ -134,19 +135,19 @@ class Profile extends CI_Controller
 		);
 		$validated = $this->post_validation($input_rules);
 
-		$user_id = $this->session->userdata("user_info")["id"];
-		$user_data = (array)$this->profile_model->join_userdata($user_id)[0];
-
 		if ($validated) {
 			$user_pass = ["user_password" => $this->input->post("new-pass")];
 
 			if ($this->profile_model->update_password($user_pass, $user_id)) {
 				$this->session->set_tempdata("change_success", "Password Changed!", 1);
-				redirect("profile/user");
+				$data = [
+					"header_title" => "Profile",
+					"main_view" => "profile_view"
+				];
 			} else {
 				$this->session->set_tempdata("change_error", "Password Not Changed!", 1);
-				$this->index($data);
 			}
+			$this->index(array_merge($user_data, $data));
 		}
 		$this->index(array_merge($user_data, $data));
 	}
