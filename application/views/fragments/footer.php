@@ -12,19 +12,19 @@
 
 				<ul class="list-unstyled">
 					<li>
-						<a class="footer-nav" href="<?= base_url('home'); ?>">Home</a>
+						<a class="footer-nav" href="<?= base_url('home') ?>">Home</a>
 					</li>
 					<li>
-						<a class="footer-nav" href="<?= base_url('posts'); ?>">Posts</a>
+						<a class="footer-nav" href="<?= base_url('posts') ?>">Posts</a>
 					</li>
 					<li>
-						<a class="footer-nav" href="<?= base_url('about'); ?>">About</a>
+						<a class="footer-nav" href="<?= base_url('about') ?>">About</a>
 					</li>
 					<li>
-						<a class="footer-nav" href="<?= base_url('profile'); ?>">Profile</a>
+						<a class="footer-nav" href="<?= base_url('profile/user') ?>">Profile</a>
 					</li>
 					<li>
-						<a class="footer-nav" href="<?= base_url('settings'); ?>">Settings</a>
+						<a class="footer-nav" href="<?= base_url('profile/edit_profile') ?>">Settings</a>
 					</li>
 				</ul>
 
