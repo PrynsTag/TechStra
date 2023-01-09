@@ -13,7 +13,7 @@ class Register extends CI_Controller
 		$data = [
 			"header_title" => "Sign Up",
 			"main_view" => "register_view",
-			"nav_icon" => "astra-tech.jpg",
+			"nav_icon" => "1024-alpha.png",
 		];
 
 		$this->index($data);
@@ -119,7 +119,7 @@ class Register extends CI_Controller
 			'header_title' => 'Login - TechStra',
 			'main_view' => 'login_view',
 			'home_image' => 'home-image.jpg',
-			'nav_icon' => 'astra-tech.jpg',
+			'nav_icon' => '1024-alpha.png',
 			'form_attributes' => array('method' => 'post'),
 			'input_username' => array('class' => 'form-control input', 'id' => 'username', 'name' => 'username', 'type', 'text', 'placeholder' => 'Username'),
 			'input_password' => array('class' => 'form-control input', 'id' => 'password', 'name' => 'password', 'type' => 'password', 'placeholder' => 'Password')

@@ -9,7 +9,7 @@
 	<title><?= $header_title ?></title>
 
 	<!--Icon-->
-	<link rel="icon" href="<?= base_url() ?>assets/images/astra-tech.png" type="image/x-icon">
+	<link rel="icon" href="<?= base_url() ?>assets/images/icon/1024-alpha.png" type="image/x-icon">
 
 	<!-- Bootstrap 5 -->
 	<link rel="stylesheet" href="https://bootswatch.com/5/lux/bootstrap.min.css">

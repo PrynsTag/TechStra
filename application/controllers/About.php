@@ -11,7 +11,7 @@ class About extends CI_Controller
         $data = [
             'header_title' => 'About - TechStra',
             'main_view' => 'about_view',
-            'nav_icon' => 'astra-tech.jpg'
+            'nav_icon' => '1024-alpha.png'
         ];
 
         $this->load->view('templates/home', array_merge($user_data, $data));

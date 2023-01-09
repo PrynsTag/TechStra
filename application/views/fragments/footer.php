@@ -3,7 +3,7 @@
 	<div class="container-fluid text-center text-md-left">
 		<div class="row">
 			<div class="col-md-6 mt-md-0 mt-3 f-desc-container">
-				<h5 class="text-uppercase footer-desc-title">Astratech</h5>
+				<h5 class="text-uppercase footer-desc-title">TechStra</h5>
 				<p class="footer-desc">This website is a project from FEUTECH</p>
 			</div>
 			<hr class="clearfix w-100 d-md-none pb-3">
@@ -49,6 +49,6 @@
 		</div>
 	</div>
 
-	<p class="text-center footer-title footer-copyright text-center py-3">&copy; 2021 TechStra. All Rights Reserved.</p>
+	<p class="text-center footer-title footer-copyright text-center py-3">&copy; <?= date("Y") ?> TechStra. All Rights Reserved.</p>
 
 </footer>
