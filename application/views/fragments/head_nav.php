@@ -15,7 +15,7 @@
 					<a class="nav-link <?= $this->uri->segment(1) === 'posts' ? 'active' : '' ?>" href="<?= base_url("posts") ?>">Posts</a>
 				</li>
 				<li class="nav-item ">
-					<a class="nav-link <?= $this->uri->segment(1) === 'posts' ? 'active' : '' ?>" href="<?= base_url("about") ?>">About</a>
+					<a class="nav-link <?= $this->uri->segment(1) === 'about' ? 'active' : '' ?>" href="<?= base_url("about") ?>">About</a>
 				</li>
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true"
