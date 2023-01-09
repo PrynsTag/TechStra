@@ -51,7 +51,7 @@
 				</div>
 			</div>
 			<div class="row pt-5">
-				<p class="text-center footer-title">&copy; 2021 TechStra. All Rights Reserved.</p>
+				<p class="text-center footer-title">&copy; <?= date("Y") ?> TechStra. All Rights Reserved.</p>
 			</div>
 		</div>
 		<div class="col-sm-7 home-image home-right-container">
