@@ -28,6 +28,7 @@ a {
     background-image: url("../images/home/home-image.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    height: 100vh;
     background-position: center center;
 }
 
@@ -385,6 +386,7 @@ a {
     background-image: url("../images/home/register-image.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    height: 100vh;
     background-position: center center;
 }
 
