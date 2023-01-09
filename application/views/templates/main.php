@@ -15,8 +15,6 @@
 	<link rel="stylesheet" href="https://bootswatch.com/5/lux/bootstrap.min.css">
 
 	<!-- Custom CSS -->
-	<?= link_tag("assets/css/signin.css") ?>
-
 	<link rel="stylesheet" href="<?= base_url("assets/css/style.css"); ?>">
 
 	<!-- Google Fonts -->
